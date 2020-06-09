@@ -87,7 +87,7 @@ class NewActivity : AppCompatActivity() {
                     if (!post.players) {
                         post.players2 = false
                         reff!!.child("Game").child(gameName).setValue(post)
-                        Toast.makeText(context, "Przeciwnk opóścił grę", Toast.LENGTH_LONG).show()
+                        Toast.makeText(context, "Przeciwnk opuścił grę", Toast.LENGTH_LONG).show()
 //                        var score =  Score()
 //                        score.score1 = p1Score
 //                        score.score2 = p2Score

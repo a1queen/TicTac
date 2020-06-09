@@ -1,52 +1,27 @@
 # this is an auto generated file. This will be overwritten
-query GetPet($id: ID!) {
-  getPet(id: $id) {
+query GetMyType($id: ID!) {
+  getMyType(id: $id) {
     id
-    name
-    description
+    title
+    content
+    price
+    rating
     createdAt
     updatedAt
   }
 }
-query ListPets($filter: ModelPetFilterInput, $limit: Int, $nextToken: String) {
-  listPets(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      name
-      description
-      createdAt
-      updatedAt
-    }
-    nextToken
-  }
-}
-query GetGame($id: ID!) {
-  getGame(id: $id) {
-    id
-    name
-    player1
-    player2
-    description
-    board
-    active
-    createdAt
-    updatedAt
-  }
-}
-query ListGames(
-  $filter: ModelGameFilterInput
+query ListMyTypes(
+  $filter: ModelMyTypeFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listGames(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listMyTypes(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      name
-      player1
-      player2
-      description
-      board
-      active
+      title
+      content
+      price
+      rating
       createdAt
       updatedAt
     }

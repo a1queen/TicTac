@@ -11,16 +11,11 @@ import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoUserPool;
 
 public class MainActivity extends AppCompatActivity {
 
-//    RecyclerView mRecyclerView;
-//    MyAdapter mAdapter;
-//    private ArrayList<ListPetsQuery.Item> mPets;
-//    private final String TAG = MainActivity.class.getSimpleName();
 
      static String user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //supportActionBar.hide()
         getSupportActionBar().hide();
 
         CognitoUserPool userpool = new CognitoUserPool(MainActivity.this, new AWSConfiguration(MainActivity.this));

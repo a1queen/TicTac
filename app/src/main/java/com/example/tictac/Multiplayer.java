@@ -1,5 +1,6 @@
 package com.example.tictac;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,26 +26,32 @@ import java.util.Random;
 public class Multiplayer extends AppCompatActivity {
     //private ArrayList<ListGamesQuery.Item> mGames;
     private final String TAG = MainActivity.class.getSimpleName();
-    //RecyclerView mRecyclerView;
-    //MyAdapterGame mAdapter;
+
     DatabaseReference reff;
     ListView myListView;
     ArrayList<String> myArrayList = new ArrayList<>();
     ArrayList<Game> myActiveGames = new ArrayList<>();
     ArrayAdapter<String> myArrayAdapter;
     private ValueEventListener listener;
+    boolean first=true;
+    Context context ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_multiplayer);
 
+        setContentView(R.layout.activity_multiplayer);
+        context = getApplicationContext();
         // mAdapter = new MyAdapterGame(this);
 
         myListView = findViewById(R.id.ListView);
 
 
         reff = FirebaseDatabase.getInstance().getReference().child("Game");
+
+
+
+
         myArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, myArrayList);
         myListView.setAdapter(myArrayAdapter);
         myListView.setClickable(true);
@@ -61,6 +69,11 @@ public class Multiplayer extends AppCompatActivity {
                 newActivity.putExtra("id", myActiveGames.get(position).getName());
                 newActivity.putExtra("multiplayer", true);
                 Multiplayer.this.startActivity(newActivity);
+
+
+
+
+
                 finish();
 
             }
@@ -82,7 +95,19 @@ public class Multiplayer extends AppCompatActivity {
                         myArrayList.add(myChildValues);
                         myActiveGames.add(post);
                         myArrayAdapter.notifyDataSetChanged();
+                        first=false;
+
                     }
+                }
+
+
+                if(myArrayList.isEmpty()&&first==true) {
+                    first=false;
+                    Toast.makeText(context, "Brak dostępnych gier, utwórz nową", Toast.LENGTH_LONG).show();
+                    Intent addGameIntent = new Intent(Multiplayer.this, AddGameActivity.class);
+                    Multiplayer.this.startActivity(addGameIntent);
+
+                    finish();
                 }
 
             }
@@ -99,9 +124,13 @@ public class Multiplayer extends AppCompatActivity {
             public void onClick(View view) {
                 Intent addGameIntent = new Intent(Multiplayer.this, AddGameActivity.class);
                 Multiplayer.this.startActivity(addGameIntent);
-                finish();
             }
         });
+
+
+
+
+
     }
 
     @Override
@@ -134,6 +163,10 @@ public class Multiplayer extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
+
+
+
+
 
     }
 

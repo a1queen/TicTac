@@ -16,5 +16,23 @@
                 "tictac82355dc1": {}
             }
         }
+    },
+    "devy": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-tictac-devy-153619-authRole",
+            "UnauthRoleArn": "arn:aws:iam::707269064850:role/amplify-tictac-devy-153619-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::707269064850:role/amplify-tictac-devy-153619-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-tictac-devy-153619-deployment",
+            "UnauthRoleName": "amplify-tictac-devy-153619-unauthRole",
+            "StackName": "amplify-tictac-devy-153619",
+            "StackId": "arn:aws:cloudformation:us-east-1:707269064850:stack/amplify-tictac-devy-153619/98051f10-a731-11ea-9beb-12c5c4f78283",
+            "AmplifyAppId": "d1rit63vvtwan8"
+        },
+        "categories": {
+            "auth": {
+                "tictac82355dc1": {}
+            }
+        }
     }
 }

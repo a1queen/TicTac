@@ -1,84 +1,42 @@
 # this is an auto generated file. This will be overwritten
-mutation CreatePet(
-  $input: CreatePetInput!
-  $condition: ModelPetConditionInput
+mutation CreateMyType(
+  $input: CreateMyTypeInput!
+  $condition: ModelMyTypeConditionInput
 ) {
-  createPet(input: $input, condition: $condition) {
+  createMyType(input: $input, condition: $condition) {
     id
-    name
-    description
+    title
+    content
+    price
+    rating
     createdAt
     updatedAt
   }
 }
-mutation UpdatePet(
-  $input: UpdatePetInput!
-  $condition: ModelPetConditionInput
+mutation UpdateMyType(
+  $input: UpdateMyTypeInput!
+  $condition: ModelMyTypeConditionInput
 ) {
-  updatePet(input: $input, condition: $condition) {
+  updateMyType(input: $input, condition: $condition) {
     id
-    name
-    description
+    title
+    content
+    price
+    rating
     createdAt
     updatedAt
   }
 }
-mutation DeletePet(
-  $input: DeletePetInput!
-  $condition: ModelPetConditionInput
+mutation DeleteMyType(
+  $input: DeleteMyTypeInput!
+  $condition: ModelMyTypeConditionInput
 ) {
-  deletePet(input: $input, condition: $condition) {
+  deleteMyType(input: $input, condition: $condition) {
     id
-    name
-    description
-    createdAt
-    updatedAt
-  }
-}
-mutation CreateGame(
-  $input: CreateGameInput!
-  $condition: ModelGameConditionInput
-) {
-  createGame(input: $input, condition: $condition) {
-    id
-    name
-    player1
-    player2
-    description
-    board
-    active
-    createdAt
-    updatedAt
-  }
-}
-mutation UpdateGame(
-  $input: UpdateGameInput!
-  $condition: ModelGameConditionInput
-) {
-  updateGame(input: $input, condition: $condition) {
-    id
-    name
-    player1
-    player2
-    description
-    board
-    active
-    createdAt
-    updatedAt
-  }
-}
-mutation DeleteGame(
-  $input: DeleteGameInput!
-  $condition: ModelGameConditionInput
-) {
-  deleteGame(input: $input, condition: $condition) {
-    id
-    name
-    player1
-    player2
-    description
-    board
-    active
+    title
+    content
+    price
+    rating
     createdAt
     updatedAt
   }
